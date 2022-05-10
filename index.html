@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Автомото</title>
+  </head>
+  <body>
+    <div id="app">
+      <div
+        class="absolute top-0 left-0 w-screen h-screen gradient gradient-animation-bg"
+      ></div>
+
+      <div class="relative mx-auto w-full md:w-2/3">
+        <div class="absolute top-10 right-10 group z-40 md:right-0">
+          <span
+            class="absolute right-8 h-1 w-10 rounded-full bg-sky-400 opacity-75 group-hover:animate-ping"
+          ></span>
+          <button
+            @click="getRandom"
+            class="bg-white px-5 py-2 rounded-full border font-bold shadow"
+          >
+            Рандом
+          </button>
+        </div>
+
+        <div class="relative flex w-full h-screen justify-center items-center">
+          <div class="absolute top-10 left-0">
+            <div
+              class="pb-10 z-20 transition-opacity duration-1000 gradient gradient-animation"
+              :class="textOpacityClass"
+            >
+              <h2 class="text-5xl">{{ brand }}</h2>
+            </div>
+          </div>
+
+          <div class="absolute top-[70px] left-0">
+            <div
+              class="pb-10 z-20 transition-opacity duration-1000 gradient gradient-animation"
+              :class="textOpacityClass"
+            >
+              <h1
+                :class="[`text-[${200 / (model.length / 3)}px]`, `md:text-[${200 / (model.length / 5)}px]`, `lg:text-[${400 / (model.length / 3)}px]`]"
+                class="leading-none"
+              >
+                <strong>{{ model }}</strong>
+              </h1>
+            </div>
+          </div>
+
+          <div class="z-30 transition-opacity" :class="imageOpacityClass">
+            <img
+              :src="image"
+              :alt="`Фото ${model}`"
+              class="max-h-[400px] lg:max-h-[500px] xl:max-h-[600px]"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

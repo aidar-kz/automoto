@@ -1,0 +1,75 @@
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 45deg;
+}
+
+.gradient {
+  --a: 45deg;
+  background: linear-gradient(
+    var(--a),
+    white calc(100% / 9 * 1),
+    pink calc(100% / 9 * 2),
+    orange calc(100% / 9 * 3),
+    yellow calc(100% / 9 * 4),
+    green calc(100% / 9 * 5),
+    teal calc(100% / 9 * 6),
+    indigo calc(100% / 9 * 7),
+    #222 calc(100% / 9 * 8)
+  );
+}
+
+.gradient-animation {
+  background-size: 1000%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  -webkit-animation: PositionAnimationReverse 80s ease infinite,
+    DirectionAnimation 90s ease infinite;
+  -moz-animation: PositionAnimationReverse 80s ease infinite,
+    DirectionAnimation 90s ease infinite;
+  animation: PositionAnimationReverse 80s ease infinite,
+    DirectionAnimation 90s ease infinite;
+}
+
+.gradient-animation-bg {
+  background-size: 2000%;
+
+  -webkit-animation: PositionAnimation 80s ease infinite,
+    DirectionAnimation 90s ease infinite;
+  -moz-animation: PositionAnimation 80s ease infinite,
+    DirectionAnimation 90s ease infinite;
+  animation: PositionAnimation 80s ease infinite,
+    DirectionAnimation 90s ease infinite;
+}
+
+@keyframes PositionAnimation {
+  0%,
+  100% {
+    background-position: 0%;
+  }
+  50% {
+    background-position: 100%;
+  }
+}
+
+@keyframes PositionAnimationReverse {
+  0%,
+  100% {
+    background-position: 100%;
+  }
+  50% {
+    background-position: 0%;
+  }
+}
+
+@keyframes DirectionAnimation {
+  0%,
+  100% {
+    --a: 45deg;
+  }
+  50% {
+    --a: 135deg;
+  }
+}
