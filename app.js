@@ -6,17 +6,20 @@ const app = Vue.createApp({
       brand: '',
       model: '',
       image: '',
-      imageOpacityClass: ''
+      imageOpacityClass: '',
+      imageTransformClass: '',
     }
   },
   methods: {
-    getRandom() {
+    async getRandom() {
       this.imageOpacityClass = 'opacity-0 duration-[500ms]'
       this.textOpacityClass = 'opacity-0'
 
-      setTimeout(async () => {
-        const res = await fetch(rootURL + '/api/cars')
-        const data = await res.json()
+      const res = await fetch(rootURL + '/api/cars')
+      const data = await res.json()
+
+      setTimeout(() => {
+        this.imageTransformClass = 'scale-100'
 
         this.brand = data.brand
         this.model = data.model
@@ -25,6 +28,7 @@ const app = Vue.createApp({
 
         setTimeout(() => {
           this.imageOpacityClass = 'opacity-100 duration-[2000ms]'
+          this.imageTransformClass = 'scale-110 duration-[20000ms]'
         }, 1000)
       }, 1000)
     }
