@@ -10,9 +10,7 @@
   </head>
   <body>
     <div id="app">
-      <div
-        class="absolute top-0 left-0 w-screen h-screen gradient gradient-animation-bg"
-      ></div>
+      <div class="absolute top-0 left-0 w-screen h-screen gradient gradient-animation-bg"></div>
 
       <div class="relative mx-auto w-full md:w-2/3">
         <div class="absolute top-10 right-10 group z-40 md:right-0">
@@ -25,6 +23,7 @@
           >
             Рандом
           </button>
+          <br />
         </div>
 
         <div class="relative flex w-full h-screen justify-center items-center">
@@ -33,7 +32,7 @@
               class="pb-10 z-20 transition-opacity duration-1000 gradient gradient-animation"
               :class="textOpacityClass"
             >
-              <h2 class="text-5xl">{{ brand }}</h2>
+              <h2 class="text-5xl" v-cloak>{{ brand }}</h2>
             </div>
           </div>
 
@@ -46,7 +45,7 @@
                 :class="[`text-[${200 / (model.length / 3)}px]`, `md:text-[${200 / (model.length / 5)}px]`, `lg:text-[${400 / (model.length / 3)}px]`]"
                 class="leading-none"
               >
-                <strong>{{ model }}</strong>
+                <strong v-cloak>{{ model }}</strong>
               </h1>
             </div>
           </div>

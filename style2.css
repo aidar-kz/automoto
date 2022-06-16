@@ -22,7 +22,6 @@
 .gradient-animation {
   background-size: 1000%;
   background-clip: text;
-  -webkit-background-clip: text;
   color: transparent;
 
   -webkit-animation: PositionAnimationReverse 80s ease infinite,
@@ -72,8 +71,4 @@
   50% {
     --a: 135deg;
   }
-}
-
-[v-cloak] {
-    display: none;
 }
